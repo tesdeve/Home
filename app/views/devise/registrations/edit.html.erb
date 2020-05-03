@@ -2,8 +2,10 @@
   <div class="row h-100 justify-content-center align-items-center"> 
     <div class="card  signup-card text-center">
       <h2>Edit <%= resource_name.to_s.humanize %></h2>
+       <h4 class='my-5'> Update Login Information </h4>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), 
+          html: { method: :put }) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
@@ -20,23 +22,45 @@
           <%= f.input :password_confirmation,
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :current_password,
+         
+          <h4 class='my-5'> Update User Information </h4>
+          <%= f.input :username %>
+          <%= f.input :name %>
+          <%= f.input :lastname %>
+          <%= f.input :telephone %>
+
+          <%#= f.simple_fields_for :contactinfo, resource.contactinfo.present? resource.contactinfo : Contactinfo.new do |ff| %>
+            <%#= ff.input :telephone %>
+            <%# end %>
+
+          <%#= render 'devise/registrations/contactinfo', form: %>
+          <%= f.input :role %>
+
+          <h4 class='mt-5 mb-3'> Did you Update Anything? </h4>
+           <%= f.input :current_password,
                       hint: "we need your current password to confirm your changes",
                       required: true,
-                      input_html: { autocomplete: "current-password" } %>
+                      input_html: { autocomplete: "current-password" }, class: 'my-5' %>
+          
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Update", class: "btn btn-sm btn-primary"  %>
+          <%= f.button :submit, "Update", class: "btn btn-sm btn-primary my-5"  %>
         </div>
       <% end %>
 
       <h3>Cancel my account</h3>
 
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), 
+                                                   data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-      <%= link_to "Back", :back %>
+      <%= link_to "Back", root_path %>
     </div>
   </div>
 </div>
 
+
+
+
+          <%#= f.input :name %>
+          <%#= f.input :lastname %>

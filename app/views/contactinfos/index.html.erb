@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contactinfos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contactable</th>
+      <th>Telefono</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contactinfos.each do |contactinfo| %>
+      <tr>
+        <td><%= contactinfo.contactable_id %></td>
+        <td><%= contactinfo.telefono %></td>
+        <td><%= contactinfo.email %></td>
+        <td><%= contactinfo.mobile %></td>
+        <td><%= link_to 'Show', contactinfo %></td>
+        <td><%= link_to 'Edit', edit_contactinfo_path(contactinfo) %></td>
+        <td><%= link_to 'Destroy', contactinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contactinfo', new_contactinfo_path %>
