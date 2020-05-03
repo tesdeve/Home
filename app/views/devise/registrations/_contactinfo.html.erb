@@ -1,0 +1,6 @@
+<% f.simple_fields_for  :contactinfo, @user.contactinfo.present? @user.contactinfo : Contactinfo.new do |ff| %>
+	<%= ff.input :telephone %>
+
+
+	<% end %>
+
