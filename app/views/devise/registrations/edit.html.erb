@@ -34,7 +34,9 @@
             <%# end %>
 
           <%#= render 'devise/registrations/contactinfo', form: %>
-          <%= f.input :role %>
+
+          <%= f.select :role, User.roles.keys.map {|type| [type.titleize, type]}  %>
+          <%#= f.input :role %>
 
           <h4 class='mt-5 mb-3'> Did you Update Anything? </h4>
            <%= f.input :current_password,

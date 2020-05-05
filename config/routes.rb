@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :engagements
+  resources :buildings
   resources :contactinfos
   root 'pages#home'
 

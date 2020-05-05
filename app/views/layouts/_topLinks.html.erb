@@ -1,0 +1,12 @@
+<div class="mb-5">  
+
+  <%= link_to 'Home', root_path, class: "mr-5" %>
+
+  <% if current_user.present? && current_user.admin? && !current_page?(controller: 'buildings') %>	
+		<%= link_to 'Conjuntos', buildings_path, class: "mr-5" %>
+  <% end %>
+
+  <% if current_user.present? && current_user.admin? && !current_page?(controller: 'engagements') %>
+  	<%= link_to 'Engagements', engagements_path, class: "mr-5" %>
+  <% end %>
+</div>

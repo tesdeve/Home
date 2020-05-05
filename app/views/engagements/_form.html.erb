@@ -1,0 +1,27 @@
+<div class="card formCard mt-5 mb-5">
+  <div class="card-body">
+    <div clas='formContainer'>
+      <%= simple_form_for(@engagement) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%= f.association :building %>
+
+        <%#= f.select :user, Engagement.users.keys.map {|type| [type.titleize, type]}  %> 
+        <!-- ITHINK THE CREATION OF  -->
+          <%= f.association :user %>
+          <%= f.input :role %>
+
+
+          <%= f.input :started_at, label: "Starts On" %>
+          <%= f.input :ended_at, label: "Ends On" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-sm btn-primary mt-4"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

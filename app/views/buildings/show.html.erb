@@ -1,0 +1,24 @@
+<div class="card ">
+  <div class="card-body">
+    <h5 class="card-title text-center mb-4">Informacion de <%= @building.name %></h5>
+   
+		<div class="cardSpaceLeft">   
+
+			<p>
+			  <strong>Nombre:</strong>
+			  <%= @building.name.capitalize %>
+			</p>
+
+			<p>
+			  <strong>Tipo de Organizacion:</strong>
+			  <%= @building.buildingtype.capitalize %>
+			</p>
+
+			<%#= link_to 'Administrators', edit_building_path(@building) %> 
+			<% if current_user.admin? %> <!-- THIS COULD BE REMOVED LATER WHEN LOGIC FOR ANYONE WILL BE ADDED -->
+				<%= link_to 'Edit', edit_building_path(@building) %> |
+				<%= link_to 'Back', buildings_path %>
+			<% end %>
+		</div>
+	</div>
+</div>
