@@ -5,7 +5,7 @@ class CreateEngagements < ActiveRecord::Migration[6.0]
       t.references :user, null: false, foreign_key: true
       t.date :started_at
       t.date :ended_at
-      t.string :role
+      t.integer :role
 
       t.timestamps
     end

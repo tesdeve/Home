@@ -8,11 +8,16 @@
         <div class="form-inputs">
           <%= f.association :building %>
 
-        <%#= f.select :user, Engagement.users.keys.map {|type| [type.titleize, type]}  %> 
         <!-- ITHINK THE CREATION OF  -->
           <%= f.association :user %>
-          <%= f.input :role %>
 
+          <%#= f.select :user, Engagement.users.keys.map {|user| [user.titleize, user]}  %>
+
+          <!-- WORKS -->
+          <%#= f.input :role %>
+          <p class="roleInput">Role Associated</p>
+          <%= f.select :role, Engagement.roles.keys.map {|role| [role.capitalize, role]} %> 
+          <!-- HERE -->
 
           <%= f.input :started_at, label: "Starts On" %>
           <%= f.input :ended_at, label: "Ends On" %>

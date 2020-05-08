@@ -10,6 +10,7 @@
 
 			  <div class="form-inputs">
 			    <%= f.input :name %>
+			    <p class="roleInput">Tipo </p>
 			    <%= f.select :buildingtype, Building.buildingtypes.keys.map {|type| [type.titleize, type]}  %> 
 
 			    <% if current_page?(controller: 'buildings', action: 'new') %>

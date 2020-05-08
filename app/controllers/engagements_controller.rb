@@ -43,7 +43,7 @@ class EngagementsController < ApplicationController
   # POST /engagements
   # POST /engagements.json
   def create
-    if !set_admin
+    if set_admin
       @engagement = Engagement.new(engagement_params)
       #@building = Building.find(params[:id])
       #@engagement = @building.engagements.create(params[:engagement].permit(:building_id, :user_id, :role))
@@ -65,7 +65,7 @@ class EngagementsController < ApplicationController
   # PATCH/PUT /engagements/1
   # PATCH/PUT /engagements/1.json
   def update
-    if !set_admin
+    if set_admin
       respond_to do |format|
         if @engagement.update(engagement_params)
           format.html { redirect_to @engagement, notice: 'Engagement was successfully updated.' }
@@ -110,6 +110,6 @@ class EngagementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def engagement_params
-      params.require(:engagement).permit(:building_id, :user_id, :role)
+      params.require(:engagement).permit(:building_id, :user_id, :role, :started_at, :ended_at)
     end
 end

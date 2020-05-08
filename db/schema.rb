@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_093048) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "name"
+    t.boolean "status"
     t.integer "buildingtype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_093048) do
     t.bigint "user_id", null: false
     t.date "started_at"
     t.date "ended_at"
-    t.string "role"
+    t.integer "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["building_id"], name: "index_engagements_on_building_id"

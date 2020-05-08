@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   enum role:{
     'admin' => 0,
-    'self' => 1,
+    'user' => 1,
     'manege' => 2,
   }
 

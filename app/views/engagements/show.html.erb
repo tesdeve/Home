@@ -3,32 +3,32 @@
     <h5 class="card-title text-center mb-4">Informacion de Engament</h5>   
 		<div class="cardSpaceLeft">   
 
-		<p>
-		  <strong>Building:</strong>
-		  <%= @engagement.building.name %>
-		</p>
+			<p>
+			  <strong>Building:</strong>
+			  <%= @engagement.building.name %>
+			</p>
 
-		<p>
-		  <strong>User:</strong>
-		  <%= @engagement.user.role.capitalize %>
-		</p>
+			<p>
+			  <strong>User Creator:</strong>
+			  <%= @engagement.user.role.capitalize %>
+			</p>
 
-		<p>
-		  <strong>Role:</strong>
-		  <%= @engagement.role %>
-		</p>
-		<p>
-		  <strong>Started On:</strong>
-		  <%= @engagement.started_at %>
-		</p>
-				<p>
-		  <strong>Finished On:</strong>
-		  <%= @engagement.ended_at %>
-		</p>
+			<p>
+			  <strong>Role Associated:</strong>
+			  <%= @engagement.role.capitalize %>
+			</p>
+			<p>
+			  <strong>Started On:</strong>
+			  <%= @engagement.started_at %>
+			</p>
+					<p>
+			  <strong>Finished On:</strong>
+			  <%= @engagement.ended_at %>
+			</p>
 
-		<%= link_to 'Edit', edit_engagement_path(@engagement) %> |
-		<%= link_to 'Back', engagements_path %>
+			<%= link_to 'Edit', edit_engagement_path(@engagement) %> |
+			<%= link_to 'Back', engagements_path %>
+		</div>
 	</div>
-</div>
 </div>
 

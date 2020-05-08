@@ -5,8 +5,8 @@
       <thead>
         <tr>
           <th>Building</th>
-          <th>User</th>
-          <th>Role</th>
+          <th>User Creator</th>
+          <th>Role Associated</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -15,7 +15,7 @@
           <tr>
             <td><%= engagement.building.name.capitalize %></td>  <!-- .building_id -->
             <td><%= engagement.user.role.capitalize %></td>  <!-- user_id -->
-            <td><%= engagement.role %></td>
+            <td><%= engagement.role.capitalize  %></td>
             <td><%= link_to 'Show', engagement %></td>
             <td><%= link_to 'Edit', edit_engagement_path(engagement) %></td>
             <td><%= link_to 'Destroy', engagement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
