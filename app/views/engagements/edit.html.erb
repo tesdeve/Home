@@ -2,5 +2,5 @@
 
 <%= render 'form', engagement: @engagement %>
 
-<%= link_to 'Show', @engagement %> |
-<%= link_to 'Back', engagements_path %>
+<%= link_to 'Show', [@building, @engagement] %> |
+<%= link_to 'Back', building_engagements_path(@building) %>

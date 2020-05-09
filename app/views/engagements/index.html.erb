@@ -14,11 +14,11 @@
         <% @engagements.each do |engagement| %>
           <tr>
             <td><%= engagement.building.name.capitalize %></td>  <!-- .building_id -->
-            <td><%= engagement.user.role.capitalize %></td>  <!-- user_id -->
+            <td><%#= engagement.user.role.capitalize %></td>  <!-- user_id -->
             <td><%= engagement.role.capitalize  %></td>
-            <td><%= link_to 'Show', engagement %></td>
-            <td><%= link_to 'Edit', edit_engagement_path(engagement) %></td>
-            <td><%= link_to 'Destroy', engagement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%#= link_to 'Show', [@building, engagement] %></td>
+            <td><%#= link_to 'Edit', edit_building_engagement_path(@building, engagement) %></td>
+            <td><%#= link_to 'Destroy', [@building, engagement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Engagement', new_engagement_path %>
+<%#= link_to 'New Engagement', new_building_engagement_path %> | 
+<%= link_to 'Back', :back %>

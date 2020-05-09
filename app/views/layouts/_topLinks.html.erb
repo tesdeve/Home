@@ -6,7 +6,17 @@
 		<%= link_to 'Conjuntos', buildings_path, class: "mr-5" %>
   <% end %>
 
-  <% if current_user.present? && current_user.admin? && !current_page?(controller: 'engagements') %>
-  	<%= link_to 'Engagements', engagements_path, class: "mr-5" %>
-  <% end %>
+
+
+
 </div>
+
+
+<!-- 
+  <%# if current_user.present? && current_user.admin? && !current_page?(controller: 'buildings', action: 'index')  %> 
+
+
+
+  	<%#= link_to 'Engagements', building_engagements_path(@building), class: "mr-5" %>
+
+  <%# end %> -->
