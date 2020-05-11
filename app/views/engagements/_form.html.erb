@@ -1,0 +1,39 @@
+<div class="card formCard mt-5 mb-5">
+  <div class="card-body">
+    <div clas='formContainer'>
+      <%= simple_form_for([@building, engagement], local: true) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%#= f.association :building %>        
+        <p class="roleInput">Ente Residencial : <%=@building.name %></p>
+
+            <%= f.input :building_id, :as => :hidden, input_html: {value: @building.id} %> 
+<!-- , :as => :hidden, input_html: {value: building_id}
+ -->
+          <!-- <td style="display:none"><%#= f.hidden_field :created_at,  input_html: { class: 'setAt'} %></td>   -->
+
+        <!-- ITHINK THE CREATION OF  -->
+          <%= f.association :user %> <!-- , :as => :hidden, input_html: {value: User.find(2)} -->
+           <%#= f.input :building_id, label: "Ente Residencial :  #{@building.name}", class: "bold", :as => :hidden, input_html: {value: @building.id} %> 
+
+          <%#= f.select :user, Engagement.users.keys.map {|user| [user.titleize, user]}  %>
+
+          <!-- WORKS -->
+          <%#= f.input :role %>
+          <p class="roleInput">Role Associated</p>
+          <%= f.select :role, Engagement.roles.keys.map {|role| [role.capitalize, role]} %> 
+          <!-- HERE -->
+
+          <%= f.input :started_at, label: "Starts On" %>
+          <%= f.input :ended_at, label: "Ends On" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-sm btn-primary mt-4"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

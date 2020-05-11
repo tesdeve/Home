@@ -1,0 +1,35 @@
+<div class="card ">
+  <div class="card-body">
+    <h4 class="card-title text-center mb-4"> <%= @building.name.upcase%></h4>
+   
+		<div class="cardSpaceLeft">  
+
+			<div class="engagementLink mt-5 mb-5">
+				<%= link_to 'Engagements', building_engagements_path(@building)%>
+			</div> 
+
+			<p>
+			  <strong>Nombre:</strong>
+			  <%= @building.name.titleize %>
+			</p>
+
+			<p>
+			  <strong>Tipo:</strong>
+			  <%= @building.buildingtype.capitalize %>
+			</p>
+
+			<%#= link_to 'Administrators', edit_building_path(@building) %> 
+			<div class="mt-5"> 
+				<%# if current_user.admin? %> <!-- THIS COULD BE REMOVED LATER WHEN LOGIC FOR ANYONE WILL BE ADDED -->
+					<%= link_to 'Edit', edit_building_path(@building) %> 
+					<%#= link_to 'Buildings', buildings_path %>
+				<%# end %>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>

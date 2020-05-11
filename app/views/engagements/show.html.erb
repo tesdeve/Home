@@ -1,0 +1,41 @@
+<div class="card ">
+  <div class="card-body">
+    <h5 class="card-title text-center mb-4">Informacion de Engament</h5>   
+		<div class="cardSpaceLeft">   
+			<p>
+
+			<%# for engagement in @building.engagements %>
+				  <strong>Building:</strong>
+				  <%= @engagement.building.name %>
+				</p>
+
+				<p>
+				  <strong>User Creator:</strong>
+				  <%= @engagement.user.email.capitalize %>
+				</p>
+
+				<p>
+				  <strong>Role Associated:</strong>
+				  <%= @engagement.role.capitalize %>
+				</p>
+				<p>
+				  <strong>Started On:</strong>
+				  <%= @engagement.started_at %>
+				</p>
+						<p>
+				  <strong>Finished On:</strong>
+				  <%= @engagement.ended_at %>
+				</p>
+
+				<%= link_to 'Edit', edit_building_engagement_path(@building, @engagement) %> |
+				<%= link_to 'Engagements', building_engagements_path(@building) %>
+			<%# end %>
+		</div>
+	</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>

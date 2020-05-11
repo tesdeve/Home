@@ -7,10 +7,12 @@ class User < ApplicationRecord
 
   enum role:{
     'admin' => 0,
-    'security' => 1,
-    'cleaning' => 2,
-    'responsible' => 3,
+    'user' => 1,
+    'manege' => 2,
   }
+
+  has_many :engagements, :dependent => :destroy
+  has_many :buildings, through: :engagements
   
 end
 
