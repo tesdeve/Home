@@ -15,7 +15,7 @@
           <!-- <td style="display:none"><%#= f.hidden_field :created_at,  input_html: { class: 'setAt'} %></td>   -->
 
         <!-- ITHINK THE CREATION OF  -->
-          <%= f.association :user %> <!-- , :as => :hidden, input_html: {value: User.find(2)} -->
+          <%= f.association :user %>
            <%#= f.input :building_id, label: "Ente Residencial :  #{@building.name}", class: "bold", :as => :hidden, input_html: {value: @building.id} %> 
 
           <%#= f.select :user, Engagement.users.keys.map {|user| [user.titleize, user]}  %>

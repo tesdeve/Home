@@ -11,7 +11,7 @@
 
 				<p>
 				  <strong>User Creator:</strong>
-				  <%= @engagement.user.role.capitalize %>
+				  <%= @engagement.user.email.capitalize %>
 				</p>
 
 				<p>
@@ -28,9 +28,14 @@
 				</p>
 
 				<%= link_to 'Edit', edit_building_engagement_path(@building, @engagement) %> |
-				<%= link_to 'Back', building_engagements_path(@building) %>
+				<%= link_to 'Engagements', building_engagements_path(@building) %>
 			<%# end %>
 		</div>
 	</div>
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -1,7 +1,7 @@
 <div class="card formCard mt-5 mb-5">
   <div class="card-body">
     <div clas='formContainer'>
-			<%= " Usuasrio : #{current_user.role.capitalize}" %>
+			<%= " Usuasrio : #{current_user.email.capitalize}" %>
 			<br>
 			<br>
 			<%= simple_form_for(@building) do |f| %>
@@ -26,7 +26,6 @@
 		</div>
 	</div>
 </div>
-
 
 
 

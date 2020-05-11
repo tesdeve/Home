@@ -1,10 +1,10 @@
 <% if current_user %>
 
-  <% if current_user.admin? %> 
-    <h3 class='mb-5'> Usuario Administrador</h3>
-    <div>
-      <%= link_to "Conjuntos", buildings_path, class: "btn btn-sm btn-primary mb-3" %>
-    </div>
+  <%# if current_user.admin? %> 
+    <!-- <h3 class='mb-5'> Usuario Administrador</h3> -->
+    <!-- <div>
+      <%#= link_to "Entes Residenciales", buildings_path, class: "btn btn-sm btn-primary mb-3" %>
+    </div> -->
     <div>
     <div>
       <%#= link_to "Properties", properties_path, class: "btn btn-sm btn-primary mb-3" %>
@@ -17,19 +17,19 @@
      <%= link_to "Edit User", edit_user_registration_path,
       class: "btn btn-sm btn-warning mb-3" %>
     </div>
-  <% else %>
+  <%# else %>
     <div>
      <%#= link_to "Properties", properties_path, class: "btn btn-sm btn-primary mb-3" %>
      </div>
     <div>
-     <%= link_to "Sign Out", destroy_user_session_path, method: :delete, 
+     <%#= link_to "Sign Out", destroy_user_session_path, method: :delete, 
          class: "btn btn-sm btn-danger mb-3" %>
      </div>
      <div>
-       <%= link_to "Edit User", edit_user_registration_path,
+       <%#= link_to "Edit User", edit_user_registration_path,
            class: "btn btn-sm btn-warning mb-3" %>
      </div>
-  <% end %>
+  <%# end %>
 
 <% else %> 
   <div>   

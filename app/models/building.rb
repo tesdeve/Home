@@ -9,11 +9,5 @@ class Building < ApplicationRecord
     urbanizacion: 2,
   }
 
-  #before_save :set_user
-#
-  #def set_user
-  #  
-  #  user
-  #end
 
 end

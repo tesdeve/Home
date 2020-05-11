@@ -5,35 +5,60 @@ class EngagementsController < ApplicationController
   before_action :set_building  #, except: [:index]
   before_action :set_user, except: [:index]
 
-
+  # GET /engagements
+  # GET /engagements.json
   def index
-      @building = Building.find(params[:building_id])     
+      @building = Building.find(params[:building_id])
+     
     #@building = @engagements.engagement.building_id
+   # if set_admin
+
       @engagements = @building.engagements
-
+    #else
+     # redirect_to root_path
+    #end
   end
 
-
+  # GET /engagements/1
+  # GET /engagements/1.json
   def show
+   # if !set_admin
+     # redirect_to root_path
+   # end
   end
 
-
+  # GET /engagements/new
   def new
-    @engagement  = @building.engagement.build
-    #@engagement = Engagement.new      
+    #if set_admin
+      #if @user.present?
+      #@engagement  = @building.engagement.build
+      @engagement = Engagement.new
+      #else
+      #  user_id = curren_user.id
+        #@engagement = Engagement.new #\\\\\\\
+      #end
+   # else
+      #redirect_to root_path
+    #end
   end
 
-
+  # GET /engagements/1/edit
   def edit
+    #if !set_admin
+    #  redirect_to root_path
+    #end
   end
 
-
+  # POST /engagements
+  # POST /engagements.json
   def create
-      @engagement = Engagement.new(engagement_params) #\\\
+    #if set_admin
+      @engagement = Engagement.new(engagement_params) #\\\\\\\\\\\\
+      #@engagement.user_id = current_user.id
 
       #@engagement = @building.engagement.build(engagement_params)
-      #@engagement.building_id  = @building.id
-      #@engagement.user_id = current_user.id #Temporarly while the form is improved
+      @engagement.building_id  = @building.id
+      @engagement.user_id = current_user.id
       
       respond_to do |format|
         if @engagement.save
@@ -44,8 +69,13 @@ class EngagementsController < ApplicationController
           format.json { render json: @engagement.errors, status: :unprocessable_entity }
         end
       end
+    #else
+    #  redirect_to root_path
+    #end
   end
 
+  # PATCH/PUT /engagements/1
+  # PATCH/PUT /engagements/1.json
   def update
     #if set_admin
       respond_to do |format|
@@ -57,8 +87,13 @@ class EngagementsController < ApplicationController
           format.json { render json: @engagement.errors, status: :unprocessable_entity }
         end
       end
+    #else
+    #  redirect_to root_path
+    #end
   end
 
+  # DELETE /engagements/1
+  # DELETE /engagements/1.json
   def destroy
     @engagement.destroy
     respond_to do |format|
@@ -68,6 +103,7 @@ class EngagementsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
     def set_engagement
       #@engagement = Building.engagements.find(params[:id])
       #@engagement = Engagement.find(params[:id])
@@ -81,12 +117,20 @@ class EngagementsController < ApplicationController
     end
 
     def set_building
+     # @building = Building.find(params[:building_id]) || @engagement.building_id
        @building = Building.find(params[:building_id]) || @engagement.building_id
       #@building = @engagement.building_id
     end
 
     def set_user
-     @user = User.find(params[:user_id])  
+     #@building = Building.find(params[:building_id])
+     #@engagement = @building.engagements.find(params[:id])
+
+      #if current_user.present?
+      # @engagement.user_id = current_user.id
+      #else
+      #  @user = User.find(params[:user_id])  
+      #end  
     end
 
 
