@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  enum role:{
+  enum role_type:{
     'admin' => 0,
     'user' => 1,
     'manege' => 2,

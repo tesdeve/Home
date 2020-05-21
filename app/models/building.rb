@@ -8,6 +8,7 @@ class Building < ApplicationRecord
     edificio: 1,
     urbanizacion: 2,
   }
-
+  
+validates :name, presence: true
 
 end

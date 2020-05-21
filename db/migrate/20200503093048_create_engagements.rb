@@ -3,9 +3,11 @@ class CreateEngagements < ActiveRecord::Migration[6.0]
     create_table :engagements do |t|
       t.references :building, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
-      t.date :started_at
-      t.date :ended_at
+      t.datetime :started_at
+      t.boolean :end
+      t.datetime :ended_at
       t.integer :role
+      t.integer :creator
 
       t.timestamps
     end

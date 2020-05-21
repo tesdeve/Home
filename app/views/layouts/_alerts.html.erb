@@ -1,2 +1,26 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<!-- <%# if notice %>
+	<div class="noticeWrapper">
+		<p class="notice"><%= notice %></p>
+	</div>
+<%# elsif alert %>
+	<div class="alertWrapper"> 
+		<p class="alert"><%= alert %></p>
+	</div>
+<%# end %> -->
+
+
+<% if alert %>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+    <strong>Atención!</strong> <%= alert %>
+  </div>
+<% end %>
+
+<% if notice %>
+  <div class="alert alert-success alert-dismissible d-flex justify-content-center contated-notice" role="alert" id="notice"><%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
