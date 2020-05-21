@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 2020_05_03_093048) do
   create_table "engagements", force: :cascade do |t|
     t.bigint "building_id", null: false
     t.bigint "user_id", null: false
-    t.date "started_at"
-    t.date "ended_at"
+    t.datetime "started_at"
+    t.boolean "end"
+    t.datetime "ended_at"
     t.integer "role"
+    t.integer "creator"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["building_id"], name: "index_engagements_on_building_id"

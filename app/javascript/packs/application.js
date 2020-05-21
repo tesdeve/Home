@@ -5,6 +5,7 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
+//require('@client-side-validations/client-side-validations')
 require("@rails/activestorage").start()
 require("channels")
 

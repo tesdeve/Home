@@ -1,16 +1,11 @@
 <%= f.fields_for :engagements,  Engagement.new  do |ff| %>	
+	<%= ff.input :creator, :as => :hidden, input_html: {value: current_user.id} %> 
 	<%= ff.input :building_id, label: "Conjunto #{@building.id}", :as => :hidden, input_html: {value: @building.id} %>
 
 	
-	<!-- <td style="display:none"><%= f.hidden_field :created_at,  input_html: { class: 'setAt'} %></td>   -->
+	<!-- <td style="display:none"><%#= f.hidden_field :created_at,  input_html: { class: 'setAt'} %></td>   -->
 	<%= ff.input :user_id, label: "Usuario #{current_user.id}", :as => :hidden, input_html: {value: current_user.id} %> 
+	<%#= ff.input :creator %>
 	<%#= ff.input :role, label: "Role: #{current_user.email.capitalize}", :as => :hidden, input_html: {value: current_user.role} %>
 	<%= ff.input :started_at , :as => :hidden, input_html: {value: @building.created_at} %>
 <% end %>
-
-
-<%#= f.fields_for :engagements, @building.engagements.present? ? @building.engagements.last : Engagement.new  do |ff| %>	
-	<%#= ff.input :building_id, label: "Conjunto #{@building.id}", :as => :hidden, input_html: {value: @building.id} %>
-	<%#= ff.input :user_id, label: "Usuario #{current_user.id}", :as => :hidden, input_html: {value: current_user.id} %> 
-	<%#= ff.input :role, label: "Role: #{current_user.role.capitalize}", :as => :hidden, input_html: {value: current_user.role} %>
-<%# end %>

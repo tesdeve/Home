@@ -1,6 +1,7 @@
 // If you need to override Bootstrap create a custom file (@import "custom";) 
 // under the and called BEFORE bootstrap  is called it like shown below
 
+@import "alerts_&_notice";
 @import "custom";
 @import 'sign_&_edit_cards';
 @import "~bootstrap/scss/bootstrap";

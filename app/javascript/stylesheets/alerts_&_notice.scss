@@ -1,0 +1,29 @@
+
+/*.noticeWrapper{
+    background-color: #62f1d6;
+    text-align: center;
+}
+
+.notice, .alert{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.alertWrapper{
+    background-color: red;
+    text-align: center;
+}*/
+
+
+.alert, alert-danger {
+    padding: 0.5rem 1rem;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.alert-success {
+    color: #62f1d6;
+}
+.contated-notice{
+  //margin-top: 5%;
+  font-size: 1.29em;
+}

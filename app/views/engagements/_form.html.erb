@@ -8,14 +8,22 @@
         <div class="form-inputs">
           <%#= f.association :building %>        
         <p class="roleInput">Ente Residencial : <%=@building.name %></p>
+            <%= f.input :creator,  input_html: {value: current_user.id} %>  <!-- :as => :hidden, -->
 
-            <%= f.input :building_id, :as => :hidden, input_html: {value: @building.id} %> 
+            <%= f.input :building_id, input_html: {value: @building.id} %>   <!-- :as => :hidden, -->
 <!-- , :as => :hidden, input_html: {value: building_id}
  -->
           <!-- <td style="display:none"><%#= f.hidden_field :created_at,  input_html: { class: 'setAt'} %></td>   -->
 
         <!-- ITHINK THE CREATION OF  -->
-          <%= f.association :user %> <!-- , :as => :hidden, input_html: {value: User.find(2)} -->
+          <%#= f.association :user %> 
+          <%# if @engagement.user_id.present? %>
+          <!--   <p class="roleInput">Usuario Asociado: <%#= engagement.user.email.titleize %></p> -->
+          <%# else %>
+            <%= f.input :user_id, label: "Usuario Asociado" %> 
+          <%# end %>
+
+          <!-- , :as => :hidden, input_html: {value: User.find(2)} -->
            <%#= f.input :building_id, label: "Ente Residencial :  #{@building.name}", class: "bold", :as => :hidden, input_html: {value: @building.id} %> 
 
           <%#= f.select :user, Engagement.users.keys.map {|user| [user.titleize, user]}  %>

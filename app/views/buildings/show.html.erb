@@ -1,13 +1,21 @@
-<div class="card ">
+<div class="card mb-5">
   <div class="card-body">
-    <h4 class="card-title text-center mb-4"> <%= @building.name.upcase%></h4>
-   
-		<div class="cardSpaceLeft">  
+    <h4 class="card-title text-center mb-4"><%= @building.buildingtype.titleize%> <%= @building.name.upcase%></h4>
+		<%= render 'buildings/role' %>
 
-			<div class="engagementLink mt-5 mb-5">
-				<%= link_to 'Engagements', building_engagements_path(@building)%>
+		<div class="cardSpaceLeft"> 
+
+			<div class="mt-5 mb-5">
+				<% if @building.engagements.where(user_id: current_user.id, role: 'admin').present? %> 
+				<%= link_to 'Engagements', building_engagements_path(@building), class: "mr-5" %>
+				<% end %>
 			</div> 
 
+			<p>
+			<% if @building.engagements.where(role: 'admin') %> 
+					<strong>Total Administradores: </strong>
+					 <%=  @building.engagements.where(role: 'admin').count  %>
+				<% end %>
 			<p>
 			  <strong>Nombre:</strong>
 			  <%= @building.name.titleize %>
@@ -15,21 +23,23 @@
 
 			<p>
 			  <strong>Tipo:</strong>
-			  <%= @building.buildingtype.capitalize %>
+			  <%= @building.buildingtype.titleize%>
+			</p>
+
+			<p>
+			  <strong>Creado por:</strong>
+			  <%= @building.users[0].email.titleize %>
 			</p>
 
 			<%#= link_to 'Administrators', edit_building_path(@building) %> 
 			<div class="mt-5"> 
-				<%# if current_user.admin? %> <!-- THIS COULD BE REMOVED LATER WHEN LOGIC FOR ANYONE WILL BE ADDED -->
-					<%= link_to 'Edit', edit_building_path(@building) %> 
+
+ 			<% if @building.engagements.where(user_id: current_user.id, role: 'admin').present? %> 
+				<%= link_to 'Edit', edit_building_path(@building) %> 
+			<% end %>
 					<%#= link_to 'Buildings', buildings_path %>
-				<%# end %>
+				
 			</div>
 		</div>
 	</div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>

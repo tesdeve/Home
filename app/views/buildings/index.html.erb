@@ -12,6 +12,7 @@
           <th>Nombre</th>
           <th>Tipo</th>
           <th>Creador </th>
+          <th> Role del Creador </th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -19,25 +20,29 @@
       <tbody>
         <% @buildings.each do |building| %>
           <tr>
-            <td><%= building.name.capitalize %></td>
-            <td><%= building.buildingtype.capitalize %></td>
-            <td><%= building.users.first.email.capitalize %></td>
+            <td><%= building.name.titleize %></td>
+            <td><%= building.buildingtype.titleize%></td>
+            <td><%= building.users[0].email.titleize%></td>
+            <td><%= building.engagements[0].role.titleize %></td>
             <td><%= link_to 'Show', building %></td>
-            <td><%= link_to 'Edit', edit_building_path(building) %></td>
-            <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <!-- Check if current user has any engagement with Admin role -->
+            <% if building.engagements.where(user_id: current_user.id, role: 'admin').present? %> 
+              <td><%= link_to 'Edit', edit_building_path(building) %></td>  
+              <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% else %>
+              <td></td>
+              <td></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
-
-
 <br>
 
-<%= link_to 'New Building', new_building_path %>
-<br>
-<br>
-<br>
-<br>
-<br>
+<%= link_to 'New Building', new_building_path, class: "mb-5" %>
+
+
+
+
