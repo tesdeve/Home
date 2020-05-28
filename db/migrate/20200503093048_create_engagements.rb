@@ -6,8 +6,10 @@ class CreateEngagements < ActiveRecord::Migration[6.0]
       t.datetime :started_at
       t.boolean :end
       t.datetime :ended_at
+      t.integer :access
       t.integer :role
       t.integer :creator
+      t.integer :edited_by
 
       t.timestamps
     end

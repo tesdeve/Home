@@ -6,7 +6,7 @@ class BuildingsController < ApplicationController
     @user = User.find(current_user.id) 
     if @user
       #
-      @buildings = @user.buildings.distinct  
+      @buildings = @user.buildings.distinct.order('created_at DESC')  
     end
   end
 
@@ -63,6 +63,10 @@ class BuildingsController < ApplicationController
     end
   end
 
+  #def building_audit
+  #  if @building 
+  #end
+#
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_building
@@ -71,7 +75,7 @@ class BuildingsController < ApplicationController
 
     # If any of the engagements(role) for this User is Admin
     def set_admin_user
-      @engagements = Engagement.where({building_id: @building.id, user_id: current_user.id, role: "admin"  })
+      @engagements = Engagement.where({building_id: @building.id, user_id: current_user.id, access: "admin"  })
       if @engagements.count > 0
        true
       end
@@ -80,6 +84,6 @@ class BuildingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def building_params
-      params.require(:building).permit(:name, :buildingtype, engagements_attributes: [:creator, :user_id, :building_id, :role, :started_at]) 
+      params.require(:building).permit(:name, :buildingtype, engagements_attributes: [:creator, :edited_by, :user_id, :building_id, :access, :role, :started_at]) 
     end
 end

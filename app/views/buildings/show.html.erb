@@ -1,20 +1,20 @@
 <div class="card mb-5">
   <div class="card-body">
     <h4 class="card-title text-center mb-4"><%= @building.buildingtype.titleize%> <%= @building.name.upcase%></h4>
-		<%= render 'buildings/role' %>
+		<%= render 'buildings/access' %>
 
 		<div class="cardSpaceLeft"> 
 
 			<div class="mt-5 mb-5">
-				<% if @building.engagements.where(user_id: current_user.id, role: 'admin').present? %> 
+				<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
 				<%= link_to 'Engagements', building_engagements_path(@building), class: "mr-5" %>
 				<% end %>
 			</div> 
 
 			<p>
-			<% if @building.engagements.where(role: 'admin') %> 
+			<% if @building.engagements.where(access: 'admin') %> 
 					<strong>Total Administradores: </strong>
-					 <%=  @building.engagements.where(role: 'admin').count  %>
+					 <%=  @building.engagements.where(access: 'admin').count  %>
 				<% end %>
 			<p>
 			  <strong>Nombre:</strong>
@@ -31,10 +31,15 @@
 			  <%= @building.users[0].email.titleize %>
 			</p>
 
+			<p>
+			  <strong>Creado el:</strong>
+			  <%= @building.created_at.strftime('%d %b %Y - %H:%M:%S')  %>
+			</p>
+
 			<%#= link_to 'Administrators', edit_building_path(@building) %> 
 			<div class="mt-5"> 
 
- 			<% if @building.engagements.where(user_id: current_user.id, role: 'admin').present? %> 
+ 			<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
 				<%= link_to 'Edit', edit_building_path(@building) %> 
 			<% end %>
 					<%#= link_to 'Buildings', buildings_path %>

@@ -7,13 +7,19 @@
 
         <div class="form-inputs">
           <%#= f.association :building %>        
-        <p class="roleInput">Ente Residencial : <%=@building.name %></p>
-            <%= f.input :creator,  input_html: {value: current_user.id} %>  <!-- :as => :hidden, -->
+        <p class="selectLabelInput"> Ente Residencial : <%=@building.name %></p>
 
-            <%= f.input :building_id, input_html: {value: @building.id} %>   <!-- :as => :hidden, -->
+        
+        <%= f.input :building_id, :as => :hidden, input_html: {value: @building.id} %>   <!-- :as => :hidden, -->
 <!-- , :as => :hidden, input_html: {value: building_id}
  -->
+
+          <%= render 'engagements/usuarioCreador', f: f %>
+
+          
           <!-- <td style="display:none"><%#= f.hidden_field :created_at,  input_html: { class: 'setAt'} %></td>   -->
+         
+          <%= render 'engagements/usuarioEditor', f: f %>
 
         <!-- ITHINK THE CREATION OF  -->
           <%#= f.association :user %> 
@@ -28,14 +34,18 @@
 
           <%#= f.select :user, Engagement.users.keys.map {|user| [user.titleize, user]}  %>
 
+          <!-- Antonio create a logic to show Roles depending on the access given -->
+          <p class="selectLabelInput mt-4">Acceso </p>
+          <%= f.select :access, Engagement.accesses.keys.map {|access| [access.capitalize, access]} %> 
+
           <!-- WORKS -->
           <%#= f.input :role %>
-          <p class="roleInput">Role Associated</p>
+          <p class="selectLabelInput mt-4">Cargo </p>
           <%= f.select :role, Engagement.roles.keys.map {|role| [role.capitalize, role]} %> 
           <!-- HERE -->
 
-          <%= f.input :started_at, label: "Starts On" %>
-          <%= f.input :ended_at, label: "Ends On" %>
+          <%= f.input :started_at, label: "Comienza el" %>
+          <%#= f.input :ended_at, label: "Ends On" %>
         </div>
 
         <div class="form-actions">

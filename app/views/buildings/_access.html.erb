@@ -1,0 +1,7 @@
+<% if current_user %>
+	<% if  Engagement.where({building_id: @building.id, user_id: current_user.id, access: 'admin'}).count > 0 %>
+		<h6 class="card-title  my-5">Su acceso es: Administrador <%#= @engagements[0].role.titleize %></h6>
+	<% elsif Engagement.where({building_id: @building.id, user_id: current_user.id, access: 'colaborador'}).count > 0 %>
+		<h6 class="card-title  my-5">Su acceso es: Colaborador </h6>
+	<% end %> 
+<% end %>
