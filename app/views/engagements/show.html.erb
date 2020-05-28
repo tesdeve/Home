@@ -1,4 +1,4 @@
-<div class="card ">
+<div class="card mb-5">
   <div class="card-body">
     <h5 class="card-title text-center mb-4">Informacion de Engament</h5>   
 		<div class="cardSpaceLeft">   
@@ -14,28 +14,50 @@
 				</p>
 
 				<p>
-				  <strong>Usuario Creador:</strong>
+				  <strong>Creador de Asociación:</strong>
 				  <%= @engagement.creator.present?  ? User.find(@engagement.creator).email.titleize : "Impossible" %>
 				</p>
+
+				<% if @engagement.edited_by != nil %>
+				<p>
+				  <strong> Ultimo editor de Asociación :</strong>
+				  <%= @editor.email.titleize %>
+				</p>
+				<% end %>
+				
+
 				<p>
 				  <strong>Usuario Asociado:</strong>
 				  <%= @engagement.user.email.titleize %>
 				</p>
 
 				<p>
-				  <strong>Role de Usuario Asociado:</strong>
+				  <strong>Aceso:</strong>
+				  <%= @engagement.access.titleize %>
+				</p>
+				<p>
+				  <strong>Cargo:</strong>
 				  <%= @engagement.role.titleize %>
 				</p>
 				<p>
 				  <strong>Comenzó el :</strong>
 				  <%= @engagement.started_at.strftime('%d %b %Y %H:%M:%S') %>
 				</p>
-						<p>
+
+				<% if @engagement.edited_by.present? %>
+					<p>
+					  <strong>Actualizado el :</strong>
+					  <%= @engagement.updated_at.strftime('%d %b %Y %H:%M:%S') %>
+					</p>
+				<% end %>
+
+				<!-- FROM HERE This should be shown only on the Engagement History -->
+<!-- 				<p>
 				  <strong>Terminó el :</strong>
 				  <%#= @engagement.ended_at.strftime('%d %b %Y %H:%M:%S') %>
-				</p>
+				</p>   TO HERE  -->
 
-				<div class="my-5">
+				<div class="my-3">
 					<%= link_to 'Edit', edit_building_engagement_path(@building, @engagement) %> 
 				<div>
 				<%#= link_to 'Engagements', building_engagements_path(@building) %>
@@ -43,9 +65,3 @@
 		</div>
 	</div>
 </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>

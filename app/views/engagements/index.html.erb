@@ -1,4 +1,4 @@
-<h1 class='mb-5'>Engagements de <%= @building.name.titleize %></h1>
+<h1 class='mb-5'>Permisos en <%= @building.buildingtype.titleize %> <%= @building.name.titleize %></h1>
 
 <div class="my-5">
   <%= link_to 'New Engagement', new_building_engagement_path(@building) %>
@@ -9,18 +9,23 @@
     <table class="table table-hover">  
       <thead>
         <tr>
-          <th>Engagement Creator</th>
-          <th>User Associated</th>
-          <th>Role Associated</th>
-          <th>Creado el</th>
+          <th> Creador de Asociación </th>
+          <th> Ultimo editor de Asociación </th>
+          <th> Usuario Asociado </th>
+          <th> Acceso </th>
+          <th> Cargo </th>
+          <th> Creado el </th>
           <th colspan="3"></th>
         </tr>
       </thead>
       <tbody>
         <% @engagements.each do |engagement| %>
           <tr>
-            <td><%= engagement.creator.present?  ? User.find(engagement.creator).email.titleize : "Impossible" %></td>
+            <td><%= engagement.creator.present?  ? User.find(engagement.creator).email.titleize : "Console" %></td>
+              <td><%= engagement.edited_by.present?  ? User.find(engagement.edited_by).email.titleize : "No Editado" %></td>
+            
             <td><%= engagement.user.email.titleize %></td>
+            <td><%= engagement.access.titleize %></td>
             <td><%= engagement.role.titleize  %></td>
             <td><%= engagement.started_at.strftime('%d %b %Y %H:%M:%S') %></td>
             <td><%= link_to 'Show', [@building, engagement] %></td>

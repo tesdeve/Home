@@ -1,7 +1,7 @@
 <h1 class='mb-5'>Entes Residenciales</h1>
 <br>
 <br>
-<%= link_to 'New Building', new_building_path %>
+<%= link_to 'Crear Ente Residencial', new_building_path %>
 <br>
 <br>
 <div class="table table-responsive"> 
@@ -9,10 +9,10 @@
     <table class="table table-hover">  
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Tipo</th>
-          <th>Creador </th>
-          <th> Role del Creador </th>
+          <th> Nombre </th>
+          <th> Tipo </th>
+          <th> Creador </th>
+         
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -23,10 +23,10 @@
             <td><%= building.name.titleize %></td>
             <td><%= building.buildingtype.titleize%></td>
             <td><%= building.users[0].email.titleize%></td>
-            <td><%= building.engagements[0].role.titleize %></td>
+            
             <td><%= link_to 'Show', building %></td>
             <!-- Check if current user has any engagement with Admin role -->
-            <% if building.engagements.where(user_id: current_user.id, role: 'admin').present? %> 
+            <% if building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
               <td><%= link_to 'Edit', edit_building_path(building) %></td>  
               <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% else %>
@@ -41,7 +41,7 @@
 </div>
 <br>
 
-<%= link_to 'New Building', new_building_path, class: "mb-5" %>
+<%= link_to 'Crear Ente Residencial', new_building_path, class: "mb-5" %>
 
 
 

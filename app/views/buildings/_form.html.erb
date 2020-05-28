@@ -1,7 +1,7 @@
 <div class="card formCard mt-5 mb-5">
   <div class="card-body">
     <div clas='formContainer'>
-			<%= " Usuasrio : #{current_user.email.capitalize}" %>
+			<%= " Usuario : #{current_user.email.capitalize}" %>
 			<br>
 			<br>
 			<%= simple_form_for(@building) do |f| %>
@@ -9,8 +9,8 @@
 			  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 			  <div class="form-inputs">
-			    <%= f.input :name %>
-			    <p class="roleInput">Tipo </p>
+			    <%= f.input :name, label: 'Nombre'  %>
+			    <p class="selectLabelInput">Tipo </p>
 			    <%= f.select :buildingtype, Building.buildingtypes.keys.map {|type| [type.titleize, type]}  %> 
 
 			    <% if current_page?(controller: 'buildings', action: 'new') %>

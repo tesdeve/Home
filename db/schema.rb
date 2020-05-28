@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(version: 2020_05_03_093048) do
     t.datetime "started_at"
     t.boolean "end"
     t.datetime "ended_at"
+    t.integer "access"
     t.integer "role"
     t.integer "creator"
+    t.integer "edited_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["building_id"], name: "index_engagements_on_building_id"

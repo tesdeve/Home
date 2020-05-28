@@ -9,7 +9,7 @@ class EngagementsController < ApplicationController
     #@building = @engagements.engagement.building_id
 
     if set_admin_access_rights
-      @engagements = @building.engagements
+      @engagements = @building.engagements.order('created_at DESC')
     else
       respond_to do |format|
         format.html { redirect_to building_path(@building), alert: 'No tienes ACCESO.' }
@@ -19,6 +19,7 @@ class EngagementsController < ApplicationController
 
 
   def show
+    set_engagement_editor
   end
 
 
@@ -29,6 +30,7 @@ class EngagementsController < ApplicationController
 
 
   def edit
+    set_creator
   end
 
 
@@ -51,6 +53,7 @@ class EngagementsController < ApplicationController
   end
 
   def update
+    set_creator
     respond_to do |format|
       if @engagement.update(engagement_params)
         if check_one_admin_exist  
@@ -75,15 +78,16 @@ class EngagementsController < ApplicationController
  def destroy
    if on_delete_check_one_admin_exist
      redirect_to building_engagements_path(@building), 
-           alert: 'No puedes borrar al único Administrador. Debe existir mínimo un Administrador.  '   
+           alert: 'No puedes borrar al único usuario con acceso de Administrador. Debe existir mínimo un Administrador.  '   
    else
-    @engagement.destroy
-    redirect_to building_engagements_path(@building),  notice: 'Engagement was successfully destroyed.'
-    end
+     @engagement.destroy
+     redirect_to building_engagements_path(@building),  notice: 'Engagement was successfully destroyed.'
+   end
  end
  
 
 private
+
   def set_engagement
     @building = Building.find(params[:building_id])
     @engagement = @building.engagements.find(params[:id])
@@ -91,7 +95,7 @@ private
 
   def set_admin
     @building = Building.find(params[:building_id])
-    if current_user.id.present? && @engagement.role == 'admin'
+    if current_user.id.present? && @engagement.access == 'admin'
       true
     end
   end
@@ -103,8 +107,8 @@ private
   # There always be at least one user with role Admin\ 
   def on_delete_check_one_admin_exist   
     @engagement = Engagement.find(params[:id])
-    @engagements = Engagement.where(building_id: @building.id, role: "admin"  )      
-    if @engagements.count == 1  && @engagement.role == 'admin'
+    @engagements = Engagement.where(building_id: @building.id, access: "admin" )      
+    if @engagements.count == 1  
      true
     end
   end
@@ -112,7 +116,7 @@ private
   #Might no be needed as the (on_delete_check_one_admin_exist) mehtod ensures that there is always one. 
  def check_one_admin_exist
    #@building = Building.find(params[:building_id])
-   @engagements = Engagement.where(building_id: @building.id, role: "admin"  )
+   @engagements = Engagement.where(building_id: @building.id, access: "admin"  )
    if @engagements.count > 0
     true
    end
@@ -121,13 +125,34 @@ private
   # Check the User has the Correct Access Rigth and ensures that at least one Admin exist
   def set_admin_access_rights
     #@building = Building.find(params[:building_id])
-    @engagements = Engagement.where(building_id: @building.id, user_id: current_user.id, role: "admin"  )
-    if @engagements.count > 0
+    #@engagement = Engagement.find(params[:id])
+    #@engagements = Engagement.where(building_id: @building.id, user_id: current_user.id, access: "admin", role: "administrador" ) || Engagement.where(building_id: @building.id, user_id: current_user.id, access: "admin", role: "consejo"  )
+    #if @engagements.count > 0
+    # true
+    #end
+    engagements1 = Engagement.where(building_id: @building.id, user_id: current_user.id, access: "admin", role: "administrador" )
+    engagements2 = Engagement.where(building_id: @building.id, user_id: current_user.id, access: "admin", role: "consejo"  )
+
+    if ( engagements1.count > 0 || engagements2.count > 0 )    
      true
     end
   end
+
+
+  def set_creator
+    @engagement = Engagement.find(params[:id])
+    @creator = User.find(@engagement.creator)
+  end
+
+  def set_engagement_editor
+    @engagement = Engagement.find(params[:id])
+    if @engagement.edited_by != nil 
+      @editor = User.find(@engagement.edited_by)
+    end 
+  end
+
   # Only allow a list of trusted parameters through.
   def engagement_params
-    params.require(:engagement).permit(:building_id, :user_id, :role, :started_at, :ended_at, :creator)
+    params.require(:engagement).permit(:building_id, :user_id, :access, :role, :started_at, :ended_at, :creator, :edited_by)
   end
 end

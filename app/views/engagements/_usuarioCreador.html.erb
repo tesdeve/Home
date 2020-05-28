@@ -1,0 +1,9 @@
+<% if current_page?(:action=>"new", :building_id=>@building.id, :controller=>"engagements") %>
+  <!-- :as => :hidden, -->
+<%= f.input :creator, :as => :hidden, input_html: {value: current_user.id} %> 
+
+<% elsif current_page?(:action=>"edit", :building_id=>@building.id, :controller=>"engagements") && @creator.present? %>
+<%= f.input :creator, label: "Usuario Creador #{@creator.email}", :as => :hidden,  input_html: {value: @creator.id} %> 
+<% elsif current_page?(:action=>"edit", :building_id=>@building.id, :controller=>"engagements") %>
+<%= f.input :creator, label: "Usuario Creador #{@creator.email}", :as => :hidden,  input_html: {value: current_user.id} %>
+ <% end %>
