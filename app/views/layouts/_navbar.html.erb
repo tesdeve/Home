@@ -1,0 +1,14 @@
+
+<div class="d-flex bd-highlight topblock">
+  <div class="mr-auto p-2 bd-highlight"><%= link_to "LOGO", root_path, class: "brand"  %></div>
+   <% if current_user %>
+    <div class="p-2 bd-highlight"><%= link_to "Salir", destroy_user_session_path  %>
+    </div>
+  <% elsif !current_user && (controller_name == 'sessions' || controller_name == 'registrations' )  %>
+  <% else %>
+    <div class="p-2 bd-highlight mr-3 signinTopLink"><%= link_to "Sign In", new_user_session_path %>
+    </div>
+    <div class="p-2 bd-highlight signupTopLink">   <%= link_to  "Sign Up", new_user_registration_path %>
+    </div>
+  <% end %>
+</div>

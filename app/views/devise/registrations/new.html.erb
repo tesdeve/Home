@@ -1,3 +1,5 @@
+<% provide(:page_title, 'Sign up') %>
+<% provide(:sign_up_active, 'active') %>
 <div class="container h-100"> <!-- This div and the one below will do center the card -->
   <div class="row h-100 justify-content-center align-items-center"> 
     <div class="card  signup-card text-center">
@@ -23,7 +25,7 @@
 
         </div>
 
-        <div class="form-actions mb-4">
+        <div class="form-actions mb-3">
           <%= f.button :submit, "Sign up", class: "btn btn-sm btn-primary"  %>
         </div>
       <% end %>

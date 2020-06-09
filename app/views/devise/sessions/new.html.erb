@@ -1,3 +1,5 @@
+<% provide(:page_title, 'Sign in') %>
+<% provide(:sign_in_active, 'active') %>
 <div class="container h-100"> <!-- This div and the one below will do center the card -->
   <div class="row h-100 justify-content-center al">
     <div class="card  signin-card text-center">
@@ -15,7 +17,7 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
 
-        <div class="form-actions">
+        <div class="form-actions mb-3">
           <%= f.button :submit, "Log in", class: "btn btn-sm btn-primary"  %>
         </div>
       <% end %>
