@@ -1,0 +1,111 @@
+/*.navbar-brand {
+  font-weight: bolder;
+  font-size:28px;
+  .different {
+      font-weight: 50;
+      color: #f75656;                
+  }
+  .brandColor {
+    color: black !important;   
+  }
+}
+
+.brandColor {
+  color: black !important;   
+}
+.navbar-props {
+    background-color: white;
+    padding-left: 10% !important; 
+    padding-right: 20% !important; 
+    
+    a {
+      color: red !important;
+    }
+    .dropdown-menu.show {
+      background-color: #302B2C;
+    }
+   .nav-link.active {
+      color: black !important;
+    }        
+}
+
+.nav-link.signin, .nav-link.singup{
+    color: #0694e9 !important;
+}
+
+
+.navbar-toggler {
+ border: 0.5px solid black !important;
+  margin-right: 5%;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(121,85,72 ,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}*/
+
+/*////////////////////////////////////////////////////////////////////////////////////////// FROM HERE IS WHAT WORKS ///////////////////////*/
+
+.brand {
+  color: black;
+  font-size: 17px;
+}
+.topblock {
+  background-color: white;
+  color: white;
+  padding-top: 2%;
+  font-weight: 300;
+  padding-bottom: 1%;
+  padding-left: 15%;
+  padding-right: 18%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.signinTopLink, .signupTopLink  {
+  font-size: 17px;
+}
+/* ========================================================= */
+/* ================  MEDIA QUERIES - PORTRAIT ============== */
+/* ========================================================= */
+@media (max-width: 992px) and (orientation : portrait) { 
+}
+/* ========================================================= */
+@media (max-width: 767px) and (orientation : portrait) {
+}
+/* ========================================================= */
+@media (max-width: 576px) and (orientation : portrait) {
+  .topblock {
+    padding-left: 7% !important;
+    padding-right: 10% !important;
+  }
+}
+@media (max-width: 400px) and (orientation : portrait) {
+  .topblock {
+    padding-left: 5% !important;
+    padding-right: 10% !important;
+  }
+  .signinTopLink, .signupTopLink {
+  font-size: 15.5px !important;
+  }
+}
+/* =============================================================== */
+/* ===================MEDIA QUERIES - LANDSCAPE ================== */
+/* =============================================================== */
+@media (max-width:800px) and (min-width:400px) {
+}
+/* =============================================================== */
+ 
+@media (max-width: 823px)  and (orientation : landscape){
+}
+/* =============================================================== */@media (max-width: 737px)  and (orientation : landscape){
+}
+/* =============================================================== */
+@media (max-width: 640px)  and (orientation : landscape){
+}
+/* =============================================================== */
+@media (max-width: 400px) and (orientation : landscape) {
+
+}
+
+
+
+

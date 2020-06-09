@@ -2,7 +2,9 @@
 // under the and called BEFORE bootstrap  is called it like shown below
 
 @import "alerts_&_notice";
+@import "navbar";
+@import "homepage";
 @import "custom";
-@import 'sign_&_edit_cards';
+@import 'devise_sign_&_edit_cards_buttons';
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');

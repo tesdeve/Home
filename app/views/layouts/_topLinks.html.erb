@@ -1,26 +1,15 @@
 
 <% if current_user.present? %>
-<div class="userSignedIn"> 
-	You are signed in as: <%=current_user.email.capitalize %>
-</div> 
+	<div class="userSignedIn"> 
+		You are signed in as: <%=current_user.email.capitalize %>
+	</div> 
 <% end %>
-<div class="mb-5">  
 
-  <a><%= link_to 'Home', root_path, class: "mr-5" %></a>
 
+<div class="mb-5"> 
+ 
   <% if current_user.present? && !current_page?(controller: 'buildings') %>	
 		<a><%= link_to 'Entes Residenciales', buildings_path, class: "mr-5" %></a>
   <% end %>
-  
 </div>
 
-
-
-<!-- 
-  <%# if current_user.present? && current_user.admin? && !current_page?(controller: 'buildings', action: 'index')  %> 
-
-
-
-  	<%#= link_to 'Engagements', building_engagements_path(@building), class: "mr-5" %>
-
-  <%# end %> -->

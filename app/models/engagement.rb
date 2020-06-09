@@ -12,16 +12,13 @@ class Engagement < ApplicationRecord
     'administrador' => 0, 
     'consejo' => 1,
     'contador' => 2, 
-   'seguridad' => 3,
+    'seguridad' => 3,
     'servicios' => 4,
   }
 
-#@users = User.order('created_at DESC')
-#
-#rder(StatusChange.arel_table['created_at'].desc)
-
 validates :user_id, presence: true
-  # Verifica que el Usuario solo tenga una relacion con el edificio con el mismo role.
+
+# Ensure engagement role uniqueness
 validates :user_id, uniqueness: { scope: [:role, :building_id], 
                                 message: 'Usuario ya tiene engagement con ese role. Puedes asignar otro role. '} 
 
