@@ -6,7 +6,13 @@
     //margin-left: auto;
 }*/
 
-
+.containerNoUser {
+  //max-width: 2000px;
+  width: 100%;
+  margin-left: 1.5% !important;
+  margin-right: 7%!important;
+  margin-top: 1% !important;
+}
 
 
 a.btn-login, a.btn-signup {
@@ -128,6 +134,14 @@ a.forgotPassword:hover {
   }
   .btn-devise {
       line-height: 1.3 !important;
+  }
+}
+/* ========================================================= */
+@media (max-width: 576px) and (orientation : portrait) {
+  .container {
+    margin-left: 0% !important;
+    padding-right: 0% !important;
+    padding-left: 0% !important;
   }
 }
 /* ========================================================= */

@@ -8,12 +8,16 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// Adds custom directory
+//require("custom/topNavBar")
+require("custom/sidebar")
+
 import 'bootstrap'
 import '../stylesheets/application'
 
 document.addEventListener("turbolinks:load", () => { 
-  $('[data-toggle="tooltip"]').tooltip();
-  $('[data-toggle="popover"]').popover();
+  //$('[data-toggle="tooltip"]').tooltip();
+  //$('[data-toggle="popover"]').popover();
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference

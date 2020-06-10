@@ -1,0 +1,19 @@
+<% if current_user %> 
+  <nav class="col-md-3 sideBar mr-4">
+    <ul class="navbar-nav">
+
+      <li class="nav-item mb-3">
+        <%= link_to 'Inicio', root_path, class: " nav-link #{yield(:inicio_active)} tableroMandoLink" %>
+      </li>
+      <li class="nav-item mb-3">
+        <%= link_to 'Entes Residenciales', buildings_path, class: "nav-link #{yield(:entes_residenciales_active)} tableroMandoLink" %>
+      </li>
+      <li class="nav-item mb-3">
+        <a class="nav-link" href="#">Demo Link</a>
+      </li>
+      <li class="nav-item mb-3">
+        <a class="nav-link" href="#">Demo Link</a>
+      </li>
+    </ul>
+  </nav>
+<% end %>
