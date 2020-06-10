@@ -1,22 +1,1203 @@
 
-<% if current_user %>
+<% provide(:home_active, 'active') %>
 
-  <div class='my-4'>
-      <%= link_to "Conjuntos", buildings_path, class: "btn btn-sm btn-primary mb-3" %>
-    </div>
-  <div class='my-4'>
-     <%= link_to "Edit User", edit_user_registration_path,
-      class: "btn btn-sm btn-warning mb-3" %>
+<div class="blueTop-bar ">
+  <%= " BANDA ASIGNADA PARA LINK A  OFERTAS DEL DIA Y BOTONES PARA OFRRECER SERVICIOS LABORALES Y TRABAJOS REQUERIDOS" %>
+</div>
+
+<% if current_user.present? && !current_page?(controller: 'buildings') %> 
+  <div class="container"> 
+    <div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3>Tablero de Mando</h3>
+      </div>
+        <%= link_to 'Entes Residenciales', buildings_path, class: "my-5 tableroMandoLink" %>
+        <ul class="list-unstyled components">
+            <li class="active">
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                     <%= link_to 'Entes Residenciales  HOME PAGE' %>
+                </li>
+                <li>
+                    <a href="#">Home 2</a>
+                </li>
+                <li>
+                    <a href="#">Home 3</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                      <a href="#">Page 1</a>
+                  </li>
+                  <li>
+                      <a href="#">Page 2</a>
+                  </li>
+                  <li>
+                      <a href="#">Page 3</a>
+                  </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Portfolio</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+        </ul>
+      </nav>
+ 
+
+    <!-- Page Content -->
+    <div id="content" class="ml-5 centralContainer">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+              <i class="fas fa-align-left"></i>
+              <span>Toggle Sidebar</span>
+          </button>
+
+
+
+        </div>
+      </nav>
+
+
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <p>
+    
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
   </div>
-  <div class='my-4'>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, 
-    class: "btn btn-sm btn-outline-danger" %>
-  </div>
-<% else %>
-  <div class='my-4'>   
-    <%= link_to  "Sign Up", new_user_registration_path, class: "btn btn-sm btn-warning" %>
-  </div>
-  <div class='my-4'>   
-    <%= link_to "Sign In", new_user_session_path, class: "btn btn-sm btn-primary" %>
-  </div>
+ 
 <% end %>
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+<% provide(:home_active, 'active') %>
+
+<div class="blueTop-bar ">
+  <%= " BANDA ASIGNADA PARA LINK A  OFERTAS DEL DIA Y BOTONES PARA OFRRECER SERVICIOS LABORALES Y TRABAJOS REQUERIDOS" %>
+</div>
+
+<div class="container">
+  <div class="my-5 mx-5"> 
+    <% if current_user.present? && !current_page?(controller: 'buildings') %> 
+      <a><%= link_to 'Entes Residenciales  HOME PAGE', buildings_path, class: "mr-5" %></a>
+
+      <div class="wrapper">
+      <!-- Sidebar -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+          <p>Dummy Heading</p>
+            <li class="active">
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a href="#">Home 1</a>
+                </li>
+                <li>
+                    <a href="#">Home 2</a>
+                </li>
+                <li>
+                    <a href="#">Home 3</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                      <a href="#">Page 1</a>
+                  </li>
+                  <li>
+                      <a href="#">Page 2</a>
+                  </li>
+                  <li>
+                      <a href="#">Page 3</a>
+                  </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Portfolio</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Page Content -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+              <i class="fas fa-align-left"></i>
+              <span>Toggle Sidebar</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+     
+
+
+
+    <% end %>
+  </div>
+
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+
+
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+
+
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+<p>
+  
+  awdef
+  asfsef
+
+
+
+
+
+
+
+  afew
+
+
+  asdcv
+
+
+
+
+
+
+  sdvd
+
+
+
+
+
+  afdsvbfdgn
+</p>
+
+
+
+
+
+
+
+
+</div>
+
