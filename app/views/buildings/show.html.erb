@@ -1,50 +1,80 @@
-<div class="card mb-5">
+<% provide(:page_title, "#{@building.name.titleize }") %>
+<% provide(:entes_residenciales_active, 'active') %>
+
+
+<% content_for(:sidebar) do %>
+  <%= render 'layouts/sidebar' %>
+<% end %>
+
+<div class="card col-md-9 mb-5 showCard">
   <div class="card-body">
-    <h4 class="card-title text-center mb-4"><%= @building.buildingtype.titleize%> <%= @building.name.upcase%></h4>
-		<%= render 'buildings/access' %>
+    <h4 class="card-title text-center mb-4"><%= @building.buildingtype.titleize%> <%= @building.name.titleize %></h4>
 
-		<div class="cardSpaceLeft"> 
+    <div class="buildingMenu"> 
+	  	<div class="my-2 py-2">
+	  		<nav class="nav">
+		  		<ul class="nav nav-pills">
+						<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
+<!-- 							<li class="nav-item">
+							  <%#= link_to 'Editar ENte Residencial', edit_building_path(@building), class: "nav-link mr-2 tableroMandoLink editLink" %>
+							</li>  -->
+						<li class="nav-item">
+             <%= link_to "Entes Residenciales", buildings_path, class: "nav-link mr-2 tableroMandoLink" %> 
+            </li> 
+							<li class="nav-item">
+						    <%= link_to 'Usuarios Asociados', building_engagements_path(@building), class: "nav-link #{yield(:usuarios_asociados_active)} mr-2 tableroMandoLink" %>
+						  </li>
+						 <% else %>
+						  <li class="nav-item">
+							  <%= link_to 'Entes Residenciales', buildings_path, class: "nav-link mr-2 tableroMandoLink" %>
+							</li> 
 
-			<div class="mt-5 mb-5">
-				<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
-				<%= link_to 'Engagements', building_engagements_path(@building), class: "mr-5" %>
-				<% end %>
+						<% end %>
+					</ul>
+				</nav>
 			</div> 
-
-			<p>
-			<% if @building.engagements.where(access: 'admin') %> 
-					<strong>Total Administradores: </strong>
-					 <%=  @building.engagements.where(access: 'admin').count  %>
-				<% end %>
-			<p>
-			  <strong>Nombre:</strong>
-			  <%= @building.name.titleize %>
-			</p>
-
-			<p>
-			  <strong>Tipo:</strong>
-			  <%= @building.buildingtype.titleize%>
-			</p>
-
-			<p>
-			  <strong>Creado por:</strong>
-			  <%= @building.users[0].email.titleize %>
-			</p>
-
-			<p>
-			  <strong>Creado el:</strong>
-			  <%= @building.created_at.strftime('%d %b %Y - %H:%M:%S')  %>
-			</p>
-
-			<%#= link_to 'Administrators', edit_building_path(@building) %> 
-			<div class="mt-5"> 
-
- 			<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
-				<%= link_to 'Edit', edit_building_path(@building) %> 
-			<% end %>
-					<%#= link_to 'Buildings', buildings_path %>
-				
-			</div>
 		</div>
+
+		<div class="my-5">
+			<%= link_to 'Editar Ente Residencial', edit_building_path(@building) %>
+		<div>
+
+		<table class="table showTable ">
+		  <tbody >
+				<tr>
+				  <th class='showTh'>Tienes acceso: </th>
+					<%= render 'buildings/access' %>
+				</tr>
+				<tr >
+		   		<th class='showTh'>Nombre: </th>
+					<td class='showTd'><%= @building.name.titleize %></td>
+				</tr>
+				<tr >
+		   		<th class='showTh'>Tipo: </th>
+					<td class='showTd'><%= @building.buildingtype.titleize%></td>
+				</tr>
+				<tr >
+		   		<th class='showTh'>Creador: </th>
+					<td class='showTd'><%= @building.users[0].email.titleize %></td>
+				</tr>		
+				<tr >
+		   		<th class='showTh'>Fecha de Creación:</th>
+					<td class='showTd'><%= @building.created_at.strftime('%d %b %Y - %H:%M:%S')  %></td>
+				</tr>	
+				<tr >
+		   		<th class='showTh'>Total Administradores: </th>
+					<td class='showTd'><%=  @building.engagements.where(access: 'admin').count  %></td>
+				</tr>
+     	</tbody>
+   </table>
+	 <div class="mt-5"> 
+			<%# if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
+			  <%#= link_to 'Editar', edit_building_path(@building), class: "nav-link mr-2 tableroMandoLink editLink" %>
+			<%# end %>
+				<%#= link_to 'Buildings', buildings_path %>
+
+			
+		</div>
+	
 	</div>
 </div>

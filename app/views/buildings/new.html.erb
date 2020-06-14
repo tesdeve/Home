@@ -1,7 +1,34 @@
-<h1>New Building</h1>
+<% provide(:page_title, 'Editando') %>
+<% provide(:entes_residenciales_active, 'active') %>
 
-<%= render 'form', building: @building %>
 
-<div class= "spaceBottom"  >  
-<%= link_to 'Back', buildings_path%>
+<% content_for(:sidebar) do %>
+  <%= render 'layouts/sidebar' %>
+<% end %>
+
+<div class="card col-md-9 mb-5 showCard">
+  <div class="card-body">
+	<h4 class="card-title text-center mb-4"> Creando Ente Residencial </h4>
+    <div class="buildingMenu"> 
+	  	<div class="my-2 py-2">
+	  		<nav class="nav">
+		  		<ul class="nav nav-pills">
+						<%# if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
+						<%#= link_to 'Usuarios Asociados', building_engagements_path(@building), class: "mr-5" %>
+						<!-- 	<li class="nav-item">
+						    <%#= link_to 'Usuarios Asociados', building_engagements_path(@building), class: "nav-link #{yield(:usuarios_asociados_active)} mr-5 tableroMandoLink" %>
+						  </li> -->
+						<%# end %>
+					</ul>
+				</nav>
+			</div> 
+		</div>
+		<%= render 'form', building: @building %>
+	</div>
 </div>
+
+
+<!-- <div class= "spaceBottom"  >  
+<%#= link_to 'Back', buildings_path%>
+</div> -->
+

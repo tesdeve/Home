@@ -1,55 +1,87 @@
-<div class="card mb-5">
+<% provide(:page_title, 'Asociación') %>
+<% provide(:asociacion, 'active') %>
+
+
+<% content_for(:sidebar) do %>
+  <%= render 'layouts/sidebar' %>
+<% end %>
+
+<div class="card col-md-9 mb-5 showCard">
   <div class="card-body">
-    <h5 class="card-title text-center mb-4">Informacion de Engament</h5>   
-		<div class="cardSpaceLeft">   
-
-			<div class="mb-5">
-				<%= link_to 'Engagements', building_engagements_path(@building) %>
+    <h5 class="card-title text-center mb-4">Asociación de usuario <%= current_user.name ? current_user.name.titleize  : @engagement.user.email.titleize %> </h5>   <%#= engagement.user.email.titleize %> 
+		<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %>
+			<div class="buildingMenu"> 
+		  	<div class="my-2 py-2">
+		  		<nav class="nav">
+			  		<ul class="nav nav-pills">
+							<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
+			  				<li class="nav-item">
+								  <%= link_to "#{@building.name}", building_path(@building), class: "nav-link mr-2 tableroMandoLink" %>
+								</li> 
+								<li class="nav-item">
+							    <%= link_to 'Usuarios Asociados', building_engagements_path(@building), class: "nav-link #{yield(:usuarios_asociados_active)} mr-2 tableroMandoLink" %>
+							  </li>
+								<li class="nav-item">
+							    <%= link_to 'Crear Asociación', new_building_engagement_path(@building), class: "nav-link #{yield(:usuarios_asociados_active)} mr-2 tableroMandoLink" %>
+							  </li>
+							<% end %>
+						</ul>
+					</nav>
+				</div> 
 			</div>
-			<p>
 
-			<%# for engagement in @building.engagements %>
-				  <strong>Ente Residencial:</strong>
-				  <%= @engagement.building.name %>
-				</p>
+		<% end %>
 
-				<p>
-				  <strong>Creador de Asociación:</strong>
-				  <%= @engagement.creator.present?  ? User.find(@engagement.creator).email.titleize : "Impossible" %>
-				</p>
+		<div class="my-5">
+			<%= link_to 'Editar Asociación', edit_building_engagement_path(@building, @engagement) %> 
+		<div>
 
+
+		<table class="table showTable">
+		  <tbody >
+				<tr>
+				  <th class='showTh'>Tienes acceso: </th>
+					<%= render 'buildings/access' %>
+				</tr>
+				<tr >
+		   		<th class='showTh'>Ente Residencial: </th>
+					<td class='showTd'><%= @engagement.building.name %></td>
+				</tr>
+				<tr >
+		   		<th class='showTh'>Creador de Asociación:</th>
+					<td class='showTd'> <%= @engagement.creator.present?  ? User.find(@engagement.creator).email.titleize : "Impossible" %></td>
+				</tr>
 				<% if @engagement.edited_by != nil %>
-				<p>
-				  <strong> Ultimo editor de Asociación :</strong>
-				  <%= @editor.email.titleize %>
-				</p>
+				<tr >
+		   		<th class='showTh'>Ultimo editor de Asociación :</th>
+					<td class='showTd'><%= @editor.email.titleize %></td>
+				</tr>
 				<% end %>
-				
-
-				<p>
-				  <strong>Usuario Asociado:</strong>
-				  <%= @engagement.user.email.titleize %>
-				</p>
-
-				<p>
-				  <strong>Aceso:</strong>
-				  <%= @engagement.access.titleize %>
-				</p>
-				<p>
-				  <strong>Cargo:</strong>
-				  <%= @engagement.role.titleize %>
-				</p>
-				<p>
-				  <strong>Comenzó el :</strong>
-				  <%= @engagement.started_at.strftime('%d %b %Y %H:%M:%S') %>
-				</p>
-
+				<tr >
+		   		<th class='showTh'>Usuario Asociado</th>
+					<td class='showTd'><%= @engagement.user.email.titleize %></td>
+				</tr>				
+				<tr >
+		   		<th class='showTh'>Aceso:</th>
+					<td class='showTd'><%= @engagement.access.titleize %></td>
+				</tr>		
+				<tr >
+		   		<th class='showTh'>Cargo:</th>
+					<td class='showTd'><%= @engagement.role.titleize %></td>
+				</tr>		
+				<tr >
+		   		<th class='showTh'>Creado:</th>
+					<td class='showTd'><%= @engagement.started_at.strftime('%d %b %Y %H:%M:%S') %></td>
+				</tr>	
 				<% if @engagement.edited_by.present? %>
-					<p>
-					  <strong>Actualizado el :</strong>
-					  <%= @engagement.updated_at.strftime('%d %b %Y %H:%M:%S') %>
-					</p>
+					<tr >
+			   		<th class='showTh'>Actualizado:</th>
+						<td class='showTd'><%= @engagement.updated_at.strftime('%d %b %Y %H:%M:%S') %></td>
+					</tr>	
 				<% end %>
+
+     	</tbody>
+   </table>
 
 				<!-- FROM HERE This should be shown only on the Engagement History -->
 <!-- 				<p>
@@ -58,7 +90,7 @@
 				</p>   TO HERE  -->
 
 				<div class="my-3">
-					<%= link_to 'Edit', edit_building_engagement_path(@building, @engagement) %> 
+					<%= link_to 'Editar Asociacion', edit_building_engagement_path(@building, @engagement) %> 
 				<div>
 				<%#= link_to 'Engagements', building_engagements_path(@building) %>
 			

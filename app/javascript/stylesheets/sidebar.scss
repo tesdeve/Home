@@ -8,6 +8,7 @@
   padding: 2% !important;
   border-right: 3px solid #dfe0ea;
   border-bottom: 3px solid #dfe0ea;
+  width: 18%;
 }
 
 .tableroMandoLink {
@@ -22,8 +23,8 @@ a, a:hover, a:focus {
 
 .navbar-nav {
     //background-color: white;
-    padding-left: 10% !important; 
-    padding-right: 20% !important; 
+    padding-left: 2% !important; 
+    padding-right: 2% !important; 
     
     a {
       color: black !important;
@@ -41,7 +42,14 @@ a, a:hover, a:focus {
 /* ================  MEDIA QUERIES - PORTRAIT ============== */
 /* ========================================================= */
 
-@media (max-width: 767px) and (orientation : portrait) {
+@media (max-width: 769px) and (orientation : portrait) {
+  .col-md-2 {
+    max-width: 100% !important;
+  }
+  .sideBar {
+    padding-left: 3% !important; 
+    padding-right: 3% !important; 
+  }
 }
 
 @media (max-width: 576px) and (orientation : portrait) {
@@ -60,13 +68,23 @@ a, a:hover, a:focus {
   .sidebarRow {
     margin-left: 0!important;
   }
+
+  .col-md-2 {
+    max-width: 100% !important;
+  }
+
+  .sideBar {
+    padding-left: 2% !important; 
+    padding-right: 3% !important; 
+  }
 }
 
 @media (max-width: 823px)  and (orientation : landscape){
-.sideBar {
-    //margin-bottom: 5%;
-    margin-left: 5%;
-    margin-bottom: 4% !important;
+  .sideBar {
+      margin-bottom: 4% !important;
+  }
+  .bigContainer {
+     margin-left: 3% !important;
   }
 }
 

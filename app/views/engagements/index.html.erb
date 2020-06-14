@@ -1,8 +1,28 @@
-<h1 class='mb-5'>Permisos en <%= @building.buildingtype.titleize %> <%= @building.name.titleize %></h1>
+<% provide(:page_title, 'Usuarios Asociados') %>
+<% provide(:usuarios_asociados_active, 'active') %>
 
-<div class="my-5">
-  <%= link_to 'New Engagement', new_building_engagement_path(@building) %>
-</div>
+
+<% content_for(:sidebar) do %>
+  <%= render 'layouts/sidebar' %>
+<% end %>
+<div class="col-md-8 col-md-offset-3 bigContainer">
+<h4 class='mb-4 indexTitle text-center'>Usuarios Asociados con <%= @building.buildingtype.titleize %> <%= @building.name.titleize %></h4>
+  <div class="buildingMenu"> 
+    <div class="my-2 py-2">
+      <nav class="nav">
+        <ul class="nav nav-pills">
+          <% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
+            <li class="nav-item">
+             <%= link_to "#{@building.name}", building_path(@building), class: "nav-link mr-2 tableroMandoLink" %> 
+            </li> 
+            <li class="nav-item">
+                <%= link_to 'Agregar Usuario', new_building_engagement_path(@building), class: "nav-link  mr-2 tableroMandoLink" %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div> 
+  </div>
 
 <div class="table table-responsive"> 
   <div class="indextable">
@@ -28,9 +48,9 @@
             <td><%= engagement.access.titleize %></td>
             <td><%= engagement.role.titleize  %></td>
             <td><%= engagement.started_at.strftime('%d %b %Y %H:%M:%S') %></td>
-            <td><%= link_to 'Show', [@building, engagement] %></td>
-            <td><%= link_to 'Edit', edit_building_engagement_path(@building, engagement) %></td>
-            <td><%= link_to 'Destroy', [@building, engagement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Ver', [@building, engagement] %></td>
+            <td><%= link_to 'Editar', edit_building_engagement_path(@building, engagement) %></td>
+            <td><%= link_to 'Borrar', [@building, engagement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -38,7 +58,9 @@
   </div>
 </div>
 
-<div class="my-5"> 
-  <%= link_to 'New Engagement', new_building_engagement_path(@building) %> | 
-  <%= link_to "#{@building.name}", building_path(@building) %>
+<!-- <div class="my-5"> 
+  <%#= link_to "#{@building.name}", building_path(@building) %> | 
+  <%#= link_to 'Crear Asosiacion', new_building_engagement_path(@building) %> 
+</div> -->
+
 </div>

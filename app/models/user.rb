@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   has_many :engagements, :dependent => :destroy
   has_many :buildings, through: :engagements
+
+  def username
+    self.email.split('@')[0].titleize
+  end
   
 end
 
