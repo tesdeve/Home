@@ -50,6 +50,7 @@
 }
 .topblock {
   background-color: white;
+  border-bottom: 1px solid #2d94e9 !important;
   color: white;
   padding-top: 2%;
   font-weight: 300;
@@ -57,6 +58,10 @@
   padding-left: 15%;
   padding-right: 18%;
  
+}
+
+.userLink {
+  color: black
 }
 .signinTopLink, .signupTopLink  {
   font-size: 17px;

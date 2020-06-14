@@ -31,6 +31,7 @@ class EngagementsController < ApplicationController
 
   def edit
     set_creator
+    associated_user
   end
 
 
@@ -121,6 +122,10 @@ private
     true
    end
  end
+
+  def associated_user
+    @associated_user = @engagement.user.email.split('@')[0].titleize 
+  end
 
   # Check the User has the Correct Access Rigth and ensures that at least one Admin exist
   def set_admin_access_rights

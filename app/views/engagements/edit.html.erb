@@ -1,11 +1,34 @@
-<h1>Editing Engagement</h1>
 
-<%= render 'form', engagement: @engagement %>
+<% provide(:page_title, 'Editando') %>
+<% provide(:entes_residenciales_active, 'active') %>
 
-<%= link_to 'Show', [@building, @engagement] %> |
-<%= link_to 'Back', building_engagements_path(@building) %>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<% content_for(:sidebar) do %>
+  <%= render 'layouts/sidebar' %>
+<% end %>
+
+<div class="card col-md-9 mb-5 showCard">
+  <div class="card-body">
+	<h4 class="card-title text-center mb-4"> Editando Asociacion de <%= @engagement.user.name ? @engagement.user.name.titleize  : @associated_user %> </h4>
+    <div class="buildingMenu"> 
+	  	<div class="my-2 py-2">
+	  		<nav class="nav">
+		  		<ul class="nav nav-pills">
+						<% if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
+							<li class="nav-item">
+								  <%= link_to "#{@building.name}", building_path(@building), class: "nav-link mr-2 tableroMandoLink" %>
+							</li> 
+			  			<li class="nav-item"> 
+								<%= link_to 'Usuarios Asociados', building_engagements_path(@building), class: "nav-link mr-2 tableroMandoLink" %>
+							</li>
+							<li class="nav-item"> 
+								<%= link_to "#{ @associated_user }", [@building, @engagement],  class: "nav-link mr-2 tableroMandoLink usernamePill text-center"  %> 
+							</li>
+						<% end %>
+					</ul>
+				</nav>
+			</div> 
+		</div>
+		<%= render 'form', engagement: @engagement %>
+	</div>
+</div>

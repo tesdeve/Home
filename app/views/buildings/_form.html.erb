@@ -1,9 +1,7 @@
 <div class="card formCard mt-5 mb-5">
   <div class="card-body">
     <div clas='formContainer'>
-			<%= " Usuario : #{current_user.email.capitalize}" %>
-			<br>
-			<br>
+			<%#= " Usuario : #{current_user.email.capitalize}" %>
 			<%= simple_form_for(@building) do |f| %>
 			  <%= f.error_notification %>
 			  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>

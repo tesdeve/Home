@@ -12,7 +12,7 @@
 .alertWrapper{
   background-color: red;
   text-align: center;
-}*/
+}
 
 
 .alert, alert-danger {
@@ -22,17 +22,20 @@
 }
 
 .alert-danger {
-    color: #ffffff !important;
-    background-color: #ff0000 !important;
-    border-color: #f5c6cb !important;
-}
+    color: #ffffff;
+    background-color: #ff0017;
+    border-color: #ff0017;
+}*/
+///////////////////////////////////////////////////////////////////////////////////
+                FROM HERE
+///////////////////////////////////////////////////////////////////////////////////
+
 
 .alert-success {
   color: #14744c !important;
   background-color: #02f2b9 !important;
   border-color: 02f2b9 !important;
 }
-
 .contated-notice{
   font-size: 1.29em;
 }
@@ -41,8 +44,27 @@
   padding-bottom: 2%;
 }
 
+/*
+
+.closeNotice {
+  color: white !important;
+}
+
+.closeAlert {
+  color: white !important;
+}
+
+*/
+
 .alert-warning {
   color: #654d08 !important;
   background-color: #fcff00 !important;
   border-color: #fcff00 !important;
 }
+
+.alert-danger {
+    color: #ffffff !important; 
+    background-color: #ff0017 !important;
+    border-color: #ff0017 !important;
+}
+

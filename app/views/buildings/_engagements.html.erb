@@ -1,3 +1,6 @@
+
+
+
 <%= f.fields_for :engagements,  Engagement.new  do |ff| %>	
 	<%= ff.input :creator, :as => :hidden, input_html: {value: current_user.id} %> 
 	<%= ff.input :building_id, :as => :hidden, input_html: {value: @building.id} %>
