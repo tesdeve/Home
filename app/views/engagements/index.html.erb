@@ -48,9 +48,9 @@
             <td><%= engagement.access.titleize %></td>
             <td><%= engagement.role.titleize  %></td>
             <td><%= engagement.started_at.strftime('%d %b %Y %H:%M:%S') %></td>
-            <td><%= link_to 'Show', [@building, engagement] %></td>
-            <td><%= link_to 'Edit', edit_building_engagement_path(@building, engagement) %></td>
-            <td><%= link_to 'Destroy', [@building, engagement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Ver', [@building, engagement] %></td>
+            <td><%= link_to 'Editar', edit_building_engagement_path(@building, engagement) %></td>
+            <td><%= link_to 'Borrar', [@building, engagement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

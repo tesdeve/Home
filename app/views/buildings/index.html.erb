@@ -43,11 +43,11 @@
               <td><%= building.buildingtype.titleize%></td>
               <td><%= building.users[0].email.titleize%></td>
               
-              <td><%= link_to 'Show', building %></td>
+              <td><%= link_to 'Ver', building %></td>
               <!-- Check if current user has any engagement with Admin role 2B Moved to a partial-->
               <% if building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
-                <td><%= link_to 'Edit', edit_building_path(building) %></td>  
-                <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Editar', edit_building_path(building) %></td>  
+                <td><%= link_to 'Borrar', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% else %>
                 <td></td>
                 <td></td>
