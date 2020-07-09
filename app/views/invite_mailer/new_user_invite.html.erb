@@ -1,0 +1,8 @@
+<h1> Hi <% @invite.email %> Wellcome to My App </h1>
+
+<p>Please click below on the following link to be part of the users associated 
+	 to <%#= @invite.building_id.name %></p>
+
+
+
+<td><%= link_to 'Aceptar Invitacion', new_user_registration_url(:invite_token => @invite.token) %></td>

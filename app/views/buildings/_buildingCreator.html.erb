@@ -1,0 +1,5 @@
+<% if building.engagements.first.creator.present? %>
+	<% creatorID =  building.engagements.first.creator %>
+	<% userCreator = User.find(creatorID) %>
+	<%= userCreatorEmail = userCreator.email %>
+<% end %>

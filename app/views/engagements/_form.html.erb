@@ -7,7 +7,7 @@
 
         <div class="form-inputs">
           <%#= f.association :building %>        
-        <p class="selectLabelInput"> Ente Residencial : <%=@building.name %></p>
+        <!-- <p class="selectLabelInput"> Ente Residencial : <%#=@building.name %></p> -->
 
         
         <%= f.input :building_id, :as => :hidden, input_html: {value: @building.id} %>   <!-- :as => :hidden, -->
@@ -26,7 +26,7 @@
           <%# if @engagement.user_id.present? %>
           <!--   <p class="roleInput">Usuario Asociado: <%#= engagement.user.email.titleize %></p> -->
           <%# else %>
-            <%= f.input :user_id, label: "Usuario Asociado" %> 
+            <%#= f.input :user_id, label: "Usuario Asociado" %> 
           <%# end %>
 
           <!-- , :as => :hidden, input_html: {value: User.find(2)} -->

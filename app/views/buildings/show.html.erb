@@ -55,7 +55,9 @@
 				</tr>
 				<tr >
 		   		<th class='showTh'>Creador: </th>
-					<td class='showTd'><%= @building.users[0].email.titleize %></td>
+
+		   		<!-- <td class='showTd'><%#= engagement.creator.present?  ? User.find(engagement.creator).email.titleize : "Console" %></td> -->
+					 <td class='showTd'><%= render 'buildingCreator', building: @building %></td> 
 				</tr>		
 				<tr >
 		   		<th class='showTh'>Fecha de Creación:</th>
@@ -78,3 +80,21 @@
 	
 	</div>
 </div>
+
+<!-- ANTONIO OJO !!! IF YOU ARE ADMIN YOU WILL SEE THIS FORM -->
+	<% if  Engagement.where({building_id: @building.id, user_id: current_user.id, access: 'admin'}).count > 0 %>
+Curent user ID= <%= current_user.id %>
+
+<br>
+
+		<%= simple_form_for(@invite ) do |f| %>
+		  <%= f.error_notification %>
+		  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+	    <%= f.hidden_field :building_id, :value => @invite.building_id %>
+   		<%= f.hidden_field :sender_id, :value => current_user.id %>
+   		<%= f.label :email %>
+	    <%= f.email_field :email %>
+	    <%= f.submit 'Send' %>
+		<% end %>
+
+<% end %>

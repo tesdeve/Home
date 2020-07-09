@@ -49,7 +49,7 @@
 				</tr>
 				<tr >
 		   		<th class='showTh'>Creador de Asociación:</th>
-					<td class='showTd'> <%= @engagement.creator.present?  ? User.find(@engagement.creator).email.titleize : "Impossible" %></td>
+					<td class='showTd'> <%= @engagement.creator.present?  ? User.find(@engagement.creator).email.titleize : @creator %></td>
 				</tr>
 				<% if @engagement.edited_by != nil %>
 				<tr >

@@ -6,11 +6,33 @@ class BuildingsController < ApplicationController
     @user = User.find(current_user.id) 
     if @user
       #
-      @buildings = @user.buildings.distinct.order('created_at DESC')  
+      @buildings = @user.buildings.distinct.order('created_at DESC') 
+       
     end
   end
 
   def show
+    @user = User.find(current_user.id) 
+    current_user_id = @user.id
+
+    recipient = User.find_by_email(params[:email])
+   #if recipient.present? 
+   #   @invite.recipient_id = recipient.id
+   #end 
+
+    puts (recipient)
+   #@invite.recipient_id = recipient.id
+   #puts("Recipient ID  : #{@invite.recipient_id}")
+    
+    @invite = Invite.new
+    @invite.building_id = @building.id
+    @invite.sender_id = current_user_id
+    # @invite.recipient_id = recipient.id
+    #if recipient.present? 
+    #   @invite.recipient_id = recipient.id
+    #else
+    #  @invite.recipient_id = 0
+    #end 
   end
 
 
@@ -80,6 +102,10 @@ class BuildingsController < ApplicationController
        true
       end
     end
+
+    #def set_building_creator
+    #  
+    #end
 
 
     # Only allow a list of trusted parameters through.

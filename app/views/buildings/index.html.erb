@@ -11,17 +11,13 @@
     <div class="my-2 py-2">
       <nav class="nav">
         <ul class="nav nav-pills">
-          <%# if @building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 
             <li class="nav-item">
               <%= link_to 'Crear Ente Residencial', new_building_path, class: "nav-link mr-2 tableroMandoLink" %> 
             </li>
-          <%# end %>
         </ul>
       </nav>
     </div> 
   </div>
-
-  <%#= link_to 'Crear Ente Residencial', new_building_path %>
  
   <div class="table table-responsive"> 
     <div class="indextable">
@@ -41,8 +37,7 @@
             <tr>
               <td><%= building.name.titleize %></td>
               <td><%= building.buildingtype.titleize%></td>
-              <td><%= building.users[0].email.titleize%></td>
-              
+              <td><%= render 'buildingCreator', building: building %></td>
               <td><%= link_to 'Ver', building %></td>
               <!-- Check if current user has any engagement with Admin role 2B Moved to a partial-->
               <% if building.engagements.where(user_id: current_user.id, access: 'admin').present? %> 

@@ -1,6 +1,3 @@
-
-
-
 <%= f.fields_for :engagements,  Engagement.new  do |ff| %>	
 	<%= ff.input :creator, :as => :hidden, input_html: {value: current_user.id} %> 
 	<%= ff.input :building_id, :as => :hidden, input_html: {value: @building.id} %>
@@ -8,7 +5,7 @@
 	
 	<!-- Important add the style on all the hidden fields <td style="display:none"><%#= f.hidden_field :created_at,  input_html: { class: 'setAt'} %></td>   -->
 	<%= ff.input :user_id, :as => :hidden, input_html: {value: current_user.id} %> 
-	<%= ff.input :creator, :as => :hidden, input_html: {value: current_user.id} %>
+	<%#= ff.input :creator, :as => :hidden, input_html: {value: current_user.id} %>
 
 
 	<%#= ff.input :creator %>
