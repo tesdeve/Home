@@ -1,4 +1,5 @@
 <% if !current_page?(:action=>"new", :building_id=>@building.id, :controller=>"engagements") %>
-	<p class="selectLabelInput"> Editado por <%= current_user.email %></p>
+	<p><b> Editante: </b><%= current_user.email %></p>
 	<%= f.input :edited_by, :as => :hidden, input_html: {value: current_user.id} %>
+	<p><b> Usuario Asociado:</b> <%= @engagement.user.email %></p>
 <% end %>

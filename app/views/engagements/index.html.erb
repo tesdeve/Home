@@ -41,9 +41,8 @@
       <tbody>
         <% @engagements.each do |engagement| %>
           <tr>
-            <td><%= engagement.creator.present?  ? User.find(engagement.creator).email.titleize : "Console" %></td>
-              <td><%= engagement.edited_by.present?  ? User.find(engagement.edited_by).email.titleize : "No Editado" %></td>
-            
+            <td><%= engagement.creator.present?  ? User.find(engagement.creator).email.titleize : "Invitation" %></td>
+            <td><%= engagement.edited_by.present?  ? User.find(engagement.edited_by).email.titleize : "No Editado" %></td>
             <td><%= engagement.user.email.titleize %></td>
             <td><%= engagement.access.titleize %></td>
             <td><%= engagement.role.titleize  %></td>
@@ -58,9 +57,28 @@
   </div>
 </div>
 
+<!-- <h3 class='my-4'> Invitar Nuevo Usuario </h3>
+  <%#= simple_form_for(Invite.new, url: new_invite_path) do |f| %>
+    <%#= f.error_notification %>
+    <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+    <%#= f.input :building_id, :as => :hidden, input_html: {value: @building.id} %>                
+    <%#= f.input :email, placeholder: 'Enter email', label: false %> 
+    <%#= f.button :submit, 'Invitar', class: 'btn-primary' %>
+    <%# end %>
+
+    </div> -->
+ 
 <!-- <div class="my-5"> 
   <%#= link_to "#{@building.name}", building_path(@building) %> | 
   <%#= link_to 'Crear Asosiacion', new_building_engagement_path(@building) %> 
 </div> -->
 
+
+
+
+
 </div>
+
+

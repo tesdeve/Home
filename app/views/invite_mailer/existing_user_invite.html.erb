@@ -1,0 +1,14 @@
+<h1> Hola <% @invite.email %> !</h1>
+
+<p> Te han invitado a participar como usuario en <%= @invite.building_id %>. Si quieres aceptar la invitacion simplement has clic en el link de abajo.</p>
+
+<p>Esperamos que disfrutes trabajando en equipo</p>
+
+
+
+<%= link_to 'Aceptar Invitacion', new_user_session_url(:invite_token => @invite.token) %>
+
+
+<p> Cordialmente </p>
+
+<p> Equipo Homein </p>

@@ -3,7 +3,13 @@
 <%= f.input :creator, :as => :hidden, input_html: {value: current_user.id} %> 
 
 <% elsif current_page?(:action=>"edit", :building_id=>@building.id, :controller=>"engagements") && @creator.present? %>
-<%= f.input :creator, label: "Usuario Creador #{@creator.email}", :as => :hidden,  input_html: {value: @creator.id} %> 
+<%#= f.input :creator, label: "Usuario Creador: #{@creator.email}", :as => :hidden,  input_html: {value: @creator.id} %> 
 <% elsif current_page?(:action=>"edit", :building_id=>@building.id, :controller=>"engagements") %>
-<%= f.input :creator, label: "Usuario Creador #{@creator.email}", :as => :hidden,  input_html: {value: current_user.id} %>
+
+
+<!-- <p><b> Usuario Editor11: </b><%#= current_user.email %></p> -->
+	<%#= f.input :edited_by, :as => :hidden, input_html: {value: current_user.id} %>
+
+
+<%#= f.input :creator, label: "Usuario Editor: #{current_user.email}", :as => :hidden,  input_html: {value: current_user.id} %>
  <% end %>

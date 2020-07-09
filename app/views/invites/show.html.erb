@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @invite.email %>
+</p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @invite.token %>
+</p>
+
+<p>
+  <strong>Sender:</strong>
+  <%= @invite.sender_id %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @invite.recipient_id %>
+</p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @invite.building_id %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @invite.accepted %>
+</p>
+
+<%= link_to 'Edit', edit_invite_path(@invite) %> |
+<%= link_to 'Back', invites_path %>

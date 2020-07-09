@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 class EngagementsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_engagement, only: [:show, :edit, :update, :destroy]
@@ -20,7 +32,6 @@ class EngagementsController < ApplicationController
 
   def show
     set_engagement_editor
-    #set_creator
   end
 
 
@@ -31,7 +42,8 @@ class EngagementsController < ApplicationController
 
 
   def edit
-   associated_user
+    set_creator
+    associated_user
   end
 
 
@@ -40,7 +52,7 @@ class EngagementsController < ApplicationController
       #@engagement = @building.engagement.build(engagement_params)
       #@engagement.building_id  = @building.id
       #@engagement.user_id = current_user.id #Temporarly while the form is improved
-     # set_creator_when_user_invited
+      
       respond_to do |format|
         if @engagement.save
           format.html { redirect_to building_engagements_path(@building), 
@@ -54,7 +66,7 @@ class EngagementsController < ApplicationController
   end
 
   def update
-    #set_creator
+    set_creator
     respond_to do |format|
       if @engagement.update(engagement_params)
         if check_one_admin_exist  
@@ -149,20 +161,6 @@ private
     @creator = User.find(@engagement.creator)
   end
 
-
-  #def set_creator_when_user_invited
-  #  @engagement = Engagement.find(params[:id])
-  #  userEmail = @engagement.user.email
-  #  @invite = Invite.find_by_email(userEmail)
-  #  sender = User.find(@invite.sender_id)
-  #  if @engagement.creator == nil
-  #    @engagement.creator = sender.email
-  #    @engagement.save
-  #  end
-  #end
-
-
-
   def set_engagement_editor
     @engagement = Engagement.find(params[:id])
     if @engagement.edited_by != nil 
@@ -175,5 +173,27 @@ private
     params.require(:engagement).permit(:building_id, :user_id, :access, :role, :started_at, :ended_at, :creator, :edited_by)
   end
 end
+  
 
 
+
+  def set_creator_when_Invitation
+    @engagement = Engagement.find(params[:id])
+    userEmail = @engagement.user.email
+    @invite = Invite.find_by_email(userEmail)
+    sender = User.find(@invite.sender_id)
+    @creator= sender.email 
+  end 
+
+
+
+def set_creator_when_user_invited
+    @engagement = Engagement.find(params[:id])
+    userEmail = @engagement.user.email
+    @invite = Invite.find_by_email(userEmail)
+    sender = User.find(@invite.sender_id)
+    if @engagement.creator == nil
+      @engagement.creator = sender.email
+      @engagement.save
+    end
+  end 
