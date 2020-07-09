@@ -29,6 +29,11 @@ gem 'websocket-extensions', '~> 0.1.5'
 
 gem 'simple_form'
 gem 'devise'
+
+
+gem "actionpack", ">= 6.0.3.2"
+
+
 #gem 'client_side_validations'
 
 # Reduces boot times through caching; required in config/boot.rb
